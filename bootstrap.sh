@@ -16,3 +16,15 @@ terraform -install-autocomplete
 packer -autocomplete-install
 
 sudo rm -r 'sudo apt update && sudo apt install packer' 
+
+cat <<'EOF1'   | sudo tee /home/ubuntu/.aws/config
+[default]
+output = json
+region = us-east-2
+EOF1
+
+cat <<'EOF2'  | sudo tee /home/ubuntu/.aws/credentials
+[default]
+aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID}}
+aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+EOF2
