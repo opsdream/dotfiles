@@ -17,6 +17,9 @@ packer -autocomplete-install
 
 sudo rm -r 'sudo apt update && sudo apt install packer' 
 
+echo 'alias gp="git add . && git commit -m \"update packer and tf configs\" && git push"' >> ~/.bashrc
+source ~/.bashrc
+
 cat <<'EOF1'   | sudo tee /home/ubuntu/.aws/config
 [default]
 output = json
